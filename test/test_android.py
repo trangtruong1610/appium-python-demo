@@ -1,6 +1,6 @@
 import unittest
 from appium.webdriver.common.appiumby import AppiumBy
-from driver.appium_driver import android_driver, ios_driver
+from driver.appium_driver import android_driver
 
 
 class TestAppium(unittest.TestCase):
@@ -48,14 +48,6 @@ class TestAppium(unittest.TestCase):
         email_sign_up_button = self.driver.find_element(AppiumBy.ID, 'com.call4site.handymanservices:id/email_sign_up_button')
         email_sign_up_button.click()
 
-
-
-
-    def test_iOS(self):
-        self.driver = ios_driver()
-
-        el = self.driver.find_element(AppiumBy.ACCESSIBILITY_ID, 'Settings')
-        el.click()
 
 if __name__ == '__main__':
     unittest.main()
