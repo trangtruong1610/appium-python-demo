@@ -1,15 +1,8 @@
-import unittest
 from appium.webdriver.common.appiumby import AppiumBy
-from driver.appium_driver import android_driver
+from driver.base import BaseTest
 
 
-class TestAppium(unittest.TestCase):
-    def setUp(self):
-        self.driver = android_driver()
-
-    def tearDown(self):
-        if self.driver:
-            self.driver.quit()
+class TestAppium(BaseTest):
 
     def test_android(self):
         signup_btn = self.driver.find_element(AppiumBy.ID, 'com.call4site.handymanservices:id/signup_btn')
@@ -48,6 +41,5 @@ class TestAppium(unittest.TestCase):
         email_sign_up_button = self.driver.find_element(AppiumBy.ID, 'com.call4site.handymanservices:id/email_sign_up_button')
         email_sign_up_button.click()
 
+        assert 4 == 1
 
-if __name__ == '__main__':
-    unittest.main()

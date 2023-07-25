@@ -1,15 +1,8 @@
-import unittest
 from appium.webdriver.common.appiumby import AppiumBy
-from driver.appium_driver import ios_driver
+from driver.base import BaseTest
 
 
-class TestAppium(unittest.TestCase):
-    def setUp(self):
-        self.driver = ios_driver()
-
-    def tearDown(self):
-        if self.driver:
-            self.driver.quit()
+class TestAppium(BaseTest):
 
     def test_iOS(self):
         item = self.driver.find_element(AppiumBy.XPATH, '(//*[@label = "Sauce Labs Backpack"])[1]')
@@ -24,5 +17,5 @@ class TestAppium(unittest.TestCase):
         remove_item_btn = self.driver.find_element(AppiumBy.ACCESSIBILITY_ID, 'remove item')
         remove_item_btn.click()
 
-if __name__ == '__main__':
-    unittest.main()
+        assert 4 == 1
+
